@@ -7,8 +7,10 @@
 <meta name="description" content="Curated food and travel recommendations by Nayul. No reservations needed — just show up hungry.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌶️</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-:root{--espresso:#2c2421;--walnut:#4a3f39;--clay:#7a6b60;--sand:#b5a89c;--linen:#f4f0eb;--parchment:#faf8f5;--white:#fffefe;--terracotta:#b8705a;--olive:#7c8a6e}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--parchment);color:var(--espresso);font-family:'Karla',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}::selection{background:rgba(184,112,90,.15)}a{color:var(--terracotta);text-decoration:none}nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s}nav.scrolled{background:rgba(250,248,245,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(181,168,156,.2)}.nav-brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--espresso);letter-spacing:1px}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--clay);transition:color .2s}.nav-links a:hover{color:var(--espresso)}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative}.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--sand);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .2s forwards}.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,14vw,140px);line-height:.95;color:var(--espresso);letter-spacing:-3px;opacity:0;animation:fadeUp .8s ease .4s forwards}.hero h1 em{font-weight:500;font-style:italic;color:var(--terracotta)}.hero-line{width:1px;height:48px;background:var(--sand);margin:48px auto;opacity:0;animation:fadeUp .8s ease .6s forwards}.hero-tagline{font-size:15px;color:var(--clay);max-width:320px;line-height:1.9;letter-spacing:.3px;opacity:0;animation:fadeUp .8s ease .8s forwards}.hero-scroll{position:absolute;bottom:40px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sand);opacity:0;animation:fadeUp .8s ease 1.2s forwards}.hero-scroll::after{content:'';display:block;width:1px;height:24px;background:var(--sand);margin:8px auto 0;animation:pulse 2s ease-in-out infinite}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}.about{max-width:540px;margin:0 auto;padding:100px 24px;text-align:center}.about-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:28px}.about p{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.8;color:var(--walnut)}.about p em{font-style:italic;color:var(--terracotta)}.about-sig{margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--clay)}.divider{display:flex;align-items:center;justify-content:center;gap:20px;padding:20px 24px;max-width:540px;margin:0 auto}.divider span{flex:1;height:1px;background:rgba(181,168,156,.3)}.divider em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px}.city-hero{text-align:center;padding:100px 24px 60px;max-width:540px;margin:0 auto}.city-hero-label{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin-bottom:20px}.city-hero h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,8vw,72px);line-height:1;color:var(--espresso);letter-spacing:-1px;margin-bottom:20px}.city-hero p{font-size:14px;color:var(--clay);line-height:1.8;max-width:360px;margin:0 auto}.main{max-width:620px;margin:0 auto;padding:0 24px 100px}.hood{margin-top:72px}.hood-header{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}.hood-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;line-height:1;color:var(--sand);letter-spacing:-2px}.hood-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;letter-spacing:.5px;color:var(--espresso)}.hood-title span{font-family:'Noto Serif KR',serif;font-weight:400;font-size:16px;color:var(--clay);margin-left:8px}.spot{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(181,168,156,.3)}.spot:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.spot-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:var(--espresso);line-height:1.3;margin-bottom:2px}.spot-kr{font-family:'Noto Serif KR',serif;font-weight:400;font-size:13px;color:var(--clay);margin-bottom:14px;letter-spacing:.5px}.spot-type{display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}.spot-type.drink{color:var(--olive)}.spot-type.experience{color:var(--clay)}.spot-desc{color:var(--walnut);line-height:1.8;margin-bottom:16px}.spot-desc strong{font-weight:600}.tip{background:var(--linen);padding:16px 20px;border-radius:4px;font-size:13.5px;color:var(--walnut);line-height:1.8;margin-bottom:16px}.tip-label{font-weight:600;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);display:block;margin-bottom:6px}.phrase-card{display:inline-block;background:var(--white);border:1px solid rgba(181,168,156,.25);border-radius:4px;padding:10px 16px;margin-top:10px;font-family:'Noto Serif KR',serif;font-weight:500;font-size:16px;color:var(--espresso)}.phrase-card .rom{display:block;font-family:'Karla',sans-serif;font-weight:400;font-style:italic;font-size:12px;color:var(--clay);margin-top:4px}.spot-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--terracotta);padding:8px 0;border-bottom:1px solid rgba(184,112,90,.3);transition:border-color .2s;margin-right:20px}.spot-link:hover{border-color:var(--terracotta)}.spot-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}.spot-details{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:12px;color:var(--sand);letter-spacing:.3px}.sub{margin-top:24px;padding-left:20px;border-left:1px solid rgba(181,168,156,.3)}.sub .spot-name{font-size:19px;font-weight:500}.sub .spot-desc{font-size:14px}.sub+.sub{margin-top:28px}.coming-soon{text-align:center;padding:100px 24px;max-width:540px;margin:0 auto}.coming-soon h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:28px;color:var(--sand);margin-bottom:16px}.coming-soon p{font-size:13px;color:var(--sand);letter-spacing:.3px}.city-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}.city-pill{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:8px 20px;border:1px solid rgba(181,168,156,.3);border-radius:24px}footer{text-align:center;padding:60px 24px;max-width:620px;margin:0 auto}.footer-line{width:40px;height:1px;background:var(--sand);margin:0 auto 24px}footer p{font-size:12px;color:var(--sand);letter-spacing:.3px}footer a{color:var(--terracotta);border-bottom:1px solid rgba(184,112,90,.3)}.journey{max-width:540px;margin:0 auto;padding:0 24px 80px}.journey-steps{position:relative;padding-left:28px}.journey-steps::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:rgba(181,168,156,.3)}.j-step{position:relative;margin-bottom:32px}.j-step:last-child{margin-bottom:0}.j-step::before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--sand);border:2px solid var(--parchment);z-index:1}.j-step.now::before{background:var(--terracotta)}.j-place{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--espresso);margin-bottom:2px}.j-desc{font-size:14px;color:var(--clay);line-height:1.7;font-style:italic}.travel-section{max-width:620px;margin:0 auto;padding:0 24px 60px;text-align:center}.travel-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}.travel-count{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;line-height:1;color:var(--espresso);margin-bottom:4px}.travel-count-sub{font-size:13px;color:var(--clay);letter-spacing:.5px;margin-bottom:40px}.travel-map-wrap{position:relative;width:100%;max-width:600px;margin:0 auto}.travel-map-wrap svg{width:100%;height:auto}.map-dot{fill:var(--terracotta);opacity:.85}.map-dot:hover{opacity:1;transform-origin:center;animation:nonepop .3s ease}@keyframes nonepop{50%{r:5}}.region-group{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.region{text-align:left}.region-name{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}.region-countries{font-size:13px;color:var(--clay);line-height:1.8}.seoul-map{max-width:540px;margin:0 auto;padding:0 24px 40px}.seoul-map-wrap{position:relative;width:100%;background:var(--linen);border-radius:8px;overflow:hidden}.seoul-map-wrap svg{width:100%;height:auto;display:block}.seoul-pin{cursor:pointer;transition:transform .2s}.seoul-pin:hover{transform:scale(1.15)}.seoul-pin circle{transition:r .2s,opacity .2s}.seoul-pin:hover circle.pin-glow{r:18;opacity:.2}.seoul-pin text{font-family:'Karla',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;fill:var(--espresso);pointer-events:none;opacity:0;transition:opacity .2s}.seoul-pin:hover text{opacity:1}.seoul-pin.active circle.pin-core{fill:var(--terracotta)}.seoul-pin.active text{opacity:1;fill:var(--terracotta)}.seoul-map-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}.seoul-map-legend a{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:6px 14px;border:1px solid rgba(181,168,156,.3);border-radius:20px;transition:all .2s}.seoul-map-legend a:hover,.seoul-map-legend a.active{color:var(--terracotta);border-color:var(--terracotta)}@media(max-width:600px){nav{padding:16px 20px}.nav-links{gap:20px}.nav-links a{font-size:11px;letter-spacing:1.5px}.hero h1{letter-spacing:-1px}.main{padding:0 20px 80px}.hood-num{font-size:48px}.hood-title{font-size:22px}.spot-name{font-size:21px}.about p{font-size:19px}.travel-count{font-size:56px}.region-group{flex-direction:column;align-items:center}.region{text-align:center}}
+:root{--espresso:#2c2421;--walnut:#4a3f39;--clay:#7a6b60;--sand:#b5a89c;--linen:#f4f0eb;--parchment:#faf8f5;--white:#fffefe;--terracotta:#b8705a;--olive:#7c8a6e}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--parchment);color:var(--espresso);font-family:'Karla',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}::selection{background:rgba(184,112,90,.15)}a{color:var(--terracotta);text-decoration:none}nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s}nav.scrolled{background:rgba(250,248,245,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(181,168,156,.2)}.nav-brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--espresso);letter-spacing:1px}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--clay);transition:color .2s}.nav-links a:hover{color:var(--espresso)}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative}.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--sand);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .2s forwards}.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,14vw,140px);line-height:.95;color:var(--espresso);letter-spacing:-3px;opacity:0;animation:fadeUp .8s ease .4s forwards}.hero h1 em{font-weight:500;font-style:italic;color:var(--terracotta)}.hero-line{width:1px;height:48px;background:var(--sand);margin:48px auto;opacity:0;animation:fadeUp .8s ease .6s forwards}.hero-tagline{font-size:15px;color:var(--clay);max-width:320px;line-height:1.9;letter-spacing:.3px;opacity:0;animation:fadeUp .8s ease .8s forwards}.hero-scroll{position:absolute;bottom:40px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sand);opacity:0;animation:fadeUp .8s ease 1.2s forwards}.hero-scroll::after{content:'';display:block;width:1px;height:24px;background:var(--sand);margin:8px auto 0;animation:pulse 2s ease-in-out infinite}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}.about{max-width:540px;margin:0 auto;padding:100px 24px;text-align:center}.about-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:28px}.about p{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.8;color:var(--walnut)}.about p em{font-style:italic;color:var(--terracotta)}.about-sig{margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--clay)}.divider{display:flex;align-items:center;justify-content:center;gap:20px;padding:20px 24px;max-width:540px;margin:0 auto}.divider span{flex:1;height:1px;background:rgba(181,168,156,.3)}.divider em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px}.city-hero{text-align:center;padding:100px 24px 60px;max-width:540px;margin:0 auto}.city-hero-label{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin-bottom:20px}.city-hero h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,8vw,72px);line-height:1;color:var(--espresso);letter-spacing:-1px;margin-bottom:20px}.city-hero p{font-size:14px;color:var(--clay);line-height:1.8;max-width:360px;margin:0 auto}.main{max-width:620px;margin:0 auto;padding:0 24px 100px}.hood{margin-top:72px}.hood-header{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}.hood-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;line-height:1;color:var(--sand);letter-spacing:-2px}.hood-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;letter-spacing:.5px;color:var(--espresso)}.hood-title span{font-family:'Noto Serif KR',serif;font-weight:400;font-size:16px;color:var(--clay);margin-left:8px}.spot{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(181,168,156,.3)}.spot:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.spot-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:var(--espresso);line-height:1.3;margin-bottom:2px}.spot-kr{font-family:'Noto Serif KR',serif;font-weight:400;font-size:13px;color:var(--clay);margin-bottom:14px;letter-spacing:.5px}.spot-type{display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}.spot-type.drink{color:var(--olive)}.spot-type.experience{color:var(--clay)}.spot-desc{color:var(--walnut);line-height:1.8;margin-bottom:16px}.spot-desc strong{font-weight:600}.tip{background:var(--linen);padding:16px 20px;border-radius:4px;font-size:13.5px;color:var(--walnut);line-height:1.8;margin-bottom:16px}.tip-label{font-weight:600;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);display:block;margin-bottom:6px}.phrase-card{display:inline-block;background:var(--white);border:1px solid rgba(181,168,156,.25);border-radius:4px;padding:10px 16px;margin-top:10px;font-family:'Noto Serif KR',serif;font-weight:500;font-size:16px;color:var(--espresso)}.phrase-card .rom{display:block;font-family:'Karla',sans-serif;font-weight:400;font-style:italic;font-size:12px;color:var(--clay);margin-top:4px}.spot-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--terracotta);padding:8px 0;border-bottom:1px solid rgba(184,112,90,.3);transition:border-color .2s;margin-right:20px}.spot-link:hover{border-color:var(--terracotta)}.spot-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}.spot-details{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:12px;color:var(--sand);letter-spacing:.3px}.sub{margin-top:24px;padding-left:20px;border-left:1px solid rgba(181,168,156,.3)}.sub .spot-name{font-size:19px;font-weight:500}.sub .spot-desc{font-size:14px}.sub+.sub{margin-top:28px}.coming-soon{text-align:center;padding:100px 24px;max-width:540px;margin:0 auto}.coming-soon h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:28px;color:var(--sand);margin-bottom:16px}.coming-soon p{font-size:13px;color:var(--sand);letter-spacing:.3px}.city-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}.city-pill{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:8px 20px;border:1px solid rgba(181,168,156,.3);border-radius:24px}footer{text-align:center;padding:60px 24px;max-width:620px;margin:0 auto}.footer-line{width:40px;height:1px;background:var(--sand);margin:0 auto 24px}footer p{font-size:12px;color:var(--sand);letter-spacing:.3px}footer a{color:var(--terracotta);border-bottom:1px solid rgba(184,112,90,.3)}.journey{max-width:540px;margin:0 auto;padding:0 24px 80px}.journey-steps{position:relative;padding-left:28px}.journey-steps::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:rgba(181,168,156,.3)}.j-step{position:relative;margin-bottom:32px}.j-step:last-child{margin-bottom:0}.j-step::before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--sand);border:2px solid var(--parchment);z-index:1}.j-step.now::before{background:var(--terracotta)}.j-place{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--espresso);margin-bottom:2px}.j-desc{font-size:14px;color:var(--clay);line-height:1.7;font-style:italic}.travel-section{max-width:620px;margin:0 auto;padding:0 24px 60px;text-align:center}.travel-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}.travel-count{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;line-height:1;color:var(--espresso);margin-bottom:4px}.travel-count-sub{font-size:13px;color:var(--clay);letter-spacing:.5px;margin-bottom:40px}.travel-map-wrap{position:relative;width:100%;max-width:600px;margin:0 auto}.travel-map-wrap svg{width:100%;height:auto}.map-dot{fill:var(--terracotta);opacity:.85}.map-dot:hover{opacity:1;transform-origin:center;animation:nonepop .3s ease}@keyframes nonepop{50%{r:5}}.region-group{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.region{text-align:left}.region-name{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}.region-countries{font-size:13px;color:var(--clay);line-height:1.8}.seoul-map-section{max-width:620px;margin:0 auto;padding:0 24px 40px}.seoul-map-container{width:100%;height:420px;border-radius:8px;overflow:hidden;border:1px solid rgba(181,168,156,.25)}.hood-map-container{width:100%;height:260px;border-radius:6px;overflow:hidden;border:1px solid rgba(181,168,156,.25);margin-bottom:32px}.saucy-marker{background:none;border:none}.saucy-marker-inner{width:28px;height:28px;border-radius:50%;background:var(--terracotta);border:3px solid var(--white);box-shadow:0 2px 8px rgba(44,36,33,.25);transition:transform .2s;cursor:pointer;position:relative}.saucy-marker-inner:hover{transform:scale(1.2)}.saucy-marker-inner.drink{background:var(--olive)}.saucy-marker-inner.experience{background:var(--clay)}.saucy-marker-inner::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--terracotta)}.saucy-marker-inner.drink::after{border-top-color:var(--olive)}.saucy-marker-inner.experience::after{border-top-color:var(--clay)}.leaflet-popup-content-wrapper{border-radius:6px;font-family:'Karla',sans-serif;box-shadow:0 4px 16px rgba(44,36,33,.12)}.leaflet-popup-content{margin:12px 16px;font-size:13px;line-height:1.6;color:var(--walnut)}.leaflet-popup-content strong{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;color:var(--espresso);display:block;margin-bottom:2px}.leaflet-popup-content .popup-type{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--terracotta);margin-bottom:4px}.leaflet-popup-content .popup-type.drink{color:var(--olive)}.leaflet-popup-content .popup-type.experience{color:var(--clay)}.leaflet-popup-tip{box-shadow:0 4px 16px rgba(44,36,33,.08)}.seoul-map-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}.seoul-map-legend a{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:6px 14px;border:1px solid rgba(181,168,156,.3);border-radius:20px;transition:all .2s}.seoul-map-legend a:hover,.seoul-map-legend a.active{color:var(--terracotta);border-color:var(--terracotta)}@media(max-width:600px){nav{padding:16px 20px}.nav-links{gap:20px}.nav-links a{font-size:11px;letter-spacing:1.5px}.hero h1{letter-spacing:-1px}.main{padding:0 20px 80px}.hood-num{font-size:48px}.hood-title{font-size:22px}.spot-name{font-size:21px}.about p{font-size:19px}.travel-count{font-size:56px}.region-group{flex-direction:column;align-items:center}.region{text-align:center}}
 </style>
 </head>
 <body>
@@ -200,52 +202,8 @@
   <p>My top picks across the city — 12 spots, 5 neighborhoods, zero reservations.</p>
 </section>
 
-<div class="seoul-map">
-  <div class="seoul-map-wrap">
-    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-      <!-- Seoul simplified outline -->
-      <rect fill="var(--linen)" width="600" height="400" rx="8"/>
-      <!-- Han River -->
-      <path d="M0,220 Q80,210 150,225 Q250,245 350,230 Q450,215 520,228 Q570,235 600,230" fill="none" stroke="rgba(181,168,156,0.3)" stroke-width="12" stroke-linecap="round"/>
-      <path d="M0,220 Q80,210 150,225 Q250,245 350,230 Q450,215 520,228 Q570,235 600,230" fill="none" stroke="rgba(181,168,156,0.15)" stroke-width="24" stroke-linecap="round"/>
-      <!-- River label -->
-      <text x="460" y="248" font-family="Cormorant Garamond,serif" font-size="11" font-style="italic" fill="rgba(181,168,156,0.5)" letter-spacing="2">Han River</text>
-      <!-- District outlines (subtle) -->
-      <g fill="rgba(181,168,156,0.06)" stroke="rgba(181,168,156,0.15)" stroke-width="0.5">
-        <circle cx="380" cy="175" r="60"/>
-        <circle cx="250" cy="160" r="50"/>
-        <circle cx="310" cy="130" r="45"/>
-        <circle cx="200" cy="130" r="40"/>
-        <circle cx="420" cy="290" r="50"/>
-      </g>
-      <!-- Neighborhood pins -->
-      <a href="#hood-seongsu" class="seoul-pin" data-hood="hood-seongsu">
-        <circle class="pin-glow" cx="420" cy="290" r="12" fill="var(--terracotta)" opacity=".1"/>
-        <circle class="pin-core" cx="420" cy="290" r="5" fill="var(--clay)"/>
-        <text x="420" y="275" text-anchor="middle">Seongsu</text>
-      </a>
-      <a href="#hood-itaewon" class="seoul-pin" data-hood="hood-itaewon">
-        <circle class="pin-glow" cx="380" cy="175" r="12" fill="var(--terracotta)" opacity=".1"/>
-        <circle class="pin-core" cx="380" cy="175" r="5" fill="var(--clay)"/>
-        <text x="380" y="160" text-anchor="middle">Itaewon</text>
-      </a>
-      <a href="#hood-seochon" class="seoul-pin" data-hood="hood-seochon">
-        <circle class="pin-glow" cx="250" cy="160" r="12" fill="var(--terracotta)" opacity=".1"/>
-        <circle class="pin-core" cx="250" cy="160" r="5" fill="var(--clay)"/>
-        <text x="250" y="145" text-anchor="middle">Seochon</text>
-      </a>
-      <a href="#hood-insadong" class="seoul-pin" data-hood="hood-insadong">
-        <circle class="pin-glow" cx="310" cy="130" r="12" fill="var(--terracotta)" opacity=".1"/>
-        <circle class="pin-core" cx="310" cy="130" r="5" fill="var(--clay)"/>
-        <text x="310" y="115" text-anchor="middle">Insadong</text>
-      </a>
-      <a href="#hood-anguk" class="seoul-pin" data-hood="hood-anguk">
-        <circle class="pin-glow" cx="200" cy="130" r="12" fill="var(--terracotta)" opacity=".1"/>
-        <circle class="pin-core" cx="200" cy="130" r="5" fill="var(--clay)"/>
-        <text x="200" y="115" text-anchor="middle">Anguk</text>
-      </a>
-    </svg>
-  </div>
+<div class="seoul-map-section">
+  <div id="seoul-overview-map" class="seoul-map-container"></div>
   <div class="seoul-map-legend">
     <a href="#hood-seongsu">01 Seongsu</a>
     <a href="#hood-itaewon">02 Itaewon</a>
@@ -262,6 +220,7 @@
       <div class="hood-num">01</div>
       <div class="hood-title">Seongsu <span>성수</span></div>
     </div>
+    <div id="map-seongsu" class="hood-map-container"></div>
     <div class="spot">
       <div class="spot-type">Eats</div>
       <div class="spot-name">Somunnan Seongsu Gamjatang</div>
@@ -282,6 +241,7 @@
       <div class="hood-num">02</div>
       <div class="hood-title">Itaewon <span>이태원</span></div>
     </div>
+    <div id="map-itaewon" class="hood-map-container"></div>
     <div class="spot">
       <div class="spot-type drink">Drinks</div>
       <div class="spot-name">Grand Hyatt Seoul — Lobby Lounge</div>
@@ -304,12 +264,13 @@
       <div class="hood-num">03</div>
       <div class="hood-title">Seochon <span>서촌</span></div>
     </div>
+    <div id="map-seochon" class="hood-map-container"></div>
     <div class="spot">
       <div class="spot-type">Eats</div>
       <div class="spot-name">Tosokchon Samgyetang</div>
       <div class="spot-kr">토속촌 삼계탕</div>
       <p class="spot-desc">The most iconic samgyetang in Seoul. Whole chicken stuffed with rice, dates, and ginseng — deeply nourishing comfort food.</p>
-      <div class="tip"><span class="tip-label">Also Consider</span>Muguok (무곡) is genuinely amazing, but the line is simply too crazy. Tosokchon is more manageable.</div>
+      <div class="tip"><span class="tip-label">Also Consider</span>Muguok (무구옥) is genuinely amazing, but the line is simply too crazy. Tosokchon is more manageable.</div>
       <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Tosokchon+Samgyetang&query_place_id=ChIJb5OOGL6ifDURU29ID3t8aOA" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
       <div class="spot-details"><span>★ 4.2 · 11.7k reviews</span><span>10am–10pm daily</span></div>
     </div>
@@ -328,6 +289,7 @@
       <div class="hood-num">04</div>
       <div class="hood-title">Insadong <span>인사동</span></div>
     </div>
+    <div id="map-insadong" class="hood-map-container"></div>
     <div class="spot">
       <div class="spot-type drink">Craft Beer</div>
       <div class="spot-name">Seoul Gypsy</div>
@@ -372,6 +334,7 @@
       <div class="hood-num">05</div>
       <div class="hood-title">Anguk <span>안국</span></div>
     </div>
+    <div id="map-anguk" class="hood-map-container"></div>
     <div class="spot">
       <div class="spot-type experience">Experience</div>
       <div class="spot-name">Changdeokgung Secret Garden</div>
@@ -424,10 +387,72 @@
 <script>
 const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
 const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
-document.querySelectorAll('.hood,.spot,.about,.city-hero,.coming-soon,.j-step,.travel-section,.seoul-map').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity 0.6s ease,transform 0.6s ease';observer.observe(el)});
-const hoods=document.querySelectorAll('.hood[id]');const pins=document.querySelectorAll('.seoul-pin');const legendLinks=document.querySelectorAll('.seoul-map-legend a');
-const hoodObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;pins.forEach(p=>{p.classList.toggle('active',p.dataset.hood===id)});legendLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+id)})}})},{threshold:.3,rootMargin:'-20% 0px -50% 0px'});
-hoods.forEach(h=>hoodObserver.observe(h));
+document.querySelectorAll('.hood,.spot,.about,.city-hero,.coming-soon,.j-step,.travel-section,.seoul-map-section').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity 0.6s ease,transform 0.6s ease';observer.observe(el)});
+
+// Legend active state on scroll
+const legendLinks=document.querySelectorAll('.seoul-map-legend a');
+const hoodObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;legendLinks.forEach(l=>{l.classList.toggle('active',l.getAttribute('href')==='#'+id)})}})},{threshold:.3,rootMargin:'-20% 0px -50% 0px'});
+document.querySelectorAll('.hood[id]').forEach(h=>hoodObserver.observe(h));
+
+// Spot data
+const spots=[
+  {name:'Somunnan Seongsu Gamjatang',kr:'소문난 성수감자탕',type:'eats',hood:'seongsu',lat:37.5445,lng:127.0565,note:'24hr pork bone soup'},
+  {name:'Grand Hyatt Seoul — Lobby Lounge',type:'drink',hood:'itaewon',lat:37.5384,lng:126.9976,note:'Best view in Seoul'},
+  {name:'VinVin',kr:'방방',type:'drink',hood:'itaewon',lat:37.5338,lng:126.9878,note:'Hidden wine bistro'},
+  {name:'Tosokchon Samgyetang',kr:'토속촌 삼계탕',type:'eats',hood:'seochon',lat:37.5788,lng:126.9690,note:'Iconic samgyetang'},
+  {name:'Cobbler',kr:'코블러',type:'drink',hood:'seochon',lat:37.5798,lng:126.9710,note:'Hanok cocktail bar'},
+  {name:'Seoul Gypsy — OG',kr:'서울집시 순라길점',type:'drink',hood:'insadong',lat:37.5735,lng:126.9895,note:'Best craft beer in Seoul'},
+  {name:'Seoul Gypsy — Fermenteria',type:'drink',hood:'insadong',lat:37.5790,lng:126.9705,note:'Sourdough pizza + beer'},
+  {name:'Toenmarujip Doenjang Yesul',kr:'툇마루집 된장예술',type:'eats',hood:'insadong',lat:37.5730,lng:126.9870,note:'Traditional doenjang'},
+  {name:'Jidaebang',kr:'지대방',type:'experience',hood:'insadong',lat:37.5738,lng:126.9850,note:'Traditional tea house'},
+  {name:'Changdeokgung Secret Garden',kr:'창덕궁 비밀의 정원',type:'experience',hood:'anguk',lat:37.5822,lng:126.9919,note:'UNESCO palace garden'},
+  {name:'TXT Coffee',kr:'.txt',type:'drink',hood:'anguk',lat:37.5787,lng:126.9853,note:'Specialty pour-over'},
+  {name:'Cheonha Bossam',kr:'천하보쌈',type:'eats',hood:'anguk',lat:37.5792,lng:126.9873,note:'Perfect bossam'}
+];
+
+const tileUrl='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+const tileAttr='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>';
+
+function createMarker(spot,map){
+  const cls=spot.type==='drink'?'drink':spot.type==='experience'?'experience':'';
+  const icon=L.divIcon({className:'saucy-marker',html:'<div class="saucy-marker-inner '+cls+'"></div>',iconSize:[28,34],iconAnchor:[14,34],popupAnchor:[0,-30]});
+  const m=L.marker([spot.lat,spot.lng],{icon:icon}).addTo(map);
+  const krLine=spot.kr?'<span style="font-family:Noto Serif KR,serif;font-size:11px;color:#7a6b60">'+spot.kr+'</span><br>':'';
+  const typeCls=spot.type==='drink'?'drink':spot.type==='experience'?'experience':'';
+  m.bindPopup('<div class="popup-type '+typeCls+'">'+spot.type+'</div><strong>'+spot.name+'</strong>'+krLine+'<span style="font-style:italic">'+spot.note+'</span>',{maxWidth:220,closeButton:false});
+  m.on('mouseover',function(){this.openPopup()});
+  return m;
+}
+
+// Overview map
+const overviewMap=L.map('seoul-overview-map',{scrollWheelZoom:false,zoomControl:true}).setView([37.565,126.985],13);
+L.tileLayer(tileUrl,{attribution:tileAttr,maxZoom:18}).addTo(overviewMap);
+spots.forEach(s=>createMarker(s,overviewMap));
+
+// Neighborhood maps
+const hoodConfigs={
+  seongsu:{center:[37.5445,127.0565],zoom:16},
+  itaewon:{center:[37.5360,126.9930],zoom:15},
+  seochon:{center:[37.5793,126.9700],zoom:16},
+  insadong:{center:[37.5748,126.9830],zoom:15},
+  anguk:{center:[37.5800,126.9882],zoom:16}
+};
+
+const hoodMaps={};
+Object.keys(hoodConfigs).forEach(hood=>{
+  const el=document.getElementById('map-'+hood);
+  if(!el)return;
+  const cfg=hoodConfigs[hood];
+  const map=L.map('map-'+hood,{scrollWheelZoom:false,zoomControl:false,dragging:true,attributionControl:false}).setView(cfg.center,cfg.zoom);
+  L.tileLayer(tileUrl,{maxZoom:18}).addTo(map);
+  spots.filter(s=>s.hood===hood).forEach(s=>createMarker(s,map));
+  hoodMaps[hood]=map;
+});
+
+// Fix map rendering when scrolled into view
+const mapObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;if(id==='seoul-overview-map')overviewMap.invalidateSize();
+else{const hood=id.replace('map-','');if(hoodMaps[hood])hoodMaps[hood].invalidateSize()}}})},{threshold:.1});
+document.querySelectorAll('.seoul-map-container,.hood-map-container').forEach(el=>mapObserver.observe(el));
 </script>
 </body>
 </html>
