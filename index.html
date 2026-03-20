@@ -11,7 +11,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
 <style>
-:root{--espresso:#2c2421;--walnut:#4a3f39;--clay:#7a6b60;--sand:#b5a89c;--linen:#f4f0eb;--parchment:#faf8f5;--white:#fffefe;--terracotta:#b8705a;--olive:#7c8a6e}[data-theme="dark"]{--espresso:#e8e0d8;--walnut:#c4b8ac;--clay:#9e9288;--sand:#6b6058;--linen:#262220;--parchment:#1a1715;--white:#2a2522;--terracotta:#d4896e;--olive:#9aab88}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--parchment);color:var(--espresso);font-family:'Karla',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}::selection{background:rgba(184,112,90,.15)}a{color:var(--terracotta);text-decoration:none}nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s}nav.scrolled{background:rgba(250,248,245,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(181,168,156,.2)}.nav-brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--espresso);letter-spacing:1px}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--clay);transition:color .2s}.nav-links a:hover{color:var(--espresso)}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative}.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--sand);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .2s forwards}.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,14vw,140px);line-height:.95;color:var(--espresso);letter-spacing:-3px;opacity:0;animation:fadeUp .8s ease .4s forwards}.hero h1 em{font-weight:500;font-style:italic;color:var(--terracotta)}.hero-line{width:1px;height:48px;background:var(--sand);margin:48px auto;opacity:0;animation:fadeUp .8s ease .6s forwards}.hero-tagline{font-size:15px;color:var(--clay);max-width:320px;line-height:1.9;letter-spacing:.3px;opacity:0;animation:fadeUp .8s ease .8s forwards}.hero-scroll{position:absolute;bottom:40px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sand);opacity:0;animation:fadeUp .8s ease 1.2s forwards}.hero-scroll::after{content:'';display:block;width:1px;height:24px;background:var(--sand);margin:8px auto 0;animation:pulse 2s ease-in-out infinite}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}.about{max-width:540px;margin:0 auto;padding:100px 24px;text-align:center}.about-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:28px}.about p{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.8;color:var(--walnut)}.about p em{font-style:italic;color:var(--terracotta)}.about-sig{margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--clay)}.divider{display:flex;align-items:center;justify-content:center;gap:20px;padding:20px 24px;max-width:540px;margin:0 auto}.divider span{flex:1;height:1px;background:rgba(181,168,156,.3)}.divider em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px}.city-hero{text-align:center;padding:100px 24px 60px;max-width:540px;margin:0 auto}.city-hero-label{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin-bottom:20px}.city-hero h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,8vw,72px);line-height:1;color:var(--espresso);letter-spacing:-1px;margin-bottom:20px}.city-hero p{font-size:14px;color:var(--clay);line-height:1.8;max-width:360px;margin:0 auto}.main{max-width:620px;margin:0 auto;padding:0 24px 100px}.hood{margin-top:72px}.hood-header{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}.hood-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;line-height:1;color:var(--sand);letter-spacing:-2px}.hood-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;letter-spacing:.5px;color:var(--espresso)}.hood-title span{font-family:'Noto Serif KR',serif;font-weight:400;font-size:16px;color:var(--clay);margin-left:8px}.spot{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(181,168,156,.3)}.spot:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.spot-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:var(--espresso);line-height:1.3;margin-bottom:2px}.spot-kr{font-family:'Noto Serif KR',serif;font-weight:400;font-size:13px;color:var(--clay);margin-bottom:14px;letter-spacing:.5px}.spot-type{display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}.spot-type.drink{color:var(--olive)}.spot-type.experience{color:var(--clay)}.spot-desc{color:var(--walnut);line-height:1.8;margin-bottom:16px}.spot-desc strong{font-weight:600}.tip{background:var(--linen);padding:16px 20px;border-radius:4px;font-size:13.5px;color:var(--walnut);line-height:1.8;margin-bottom:16px}.tip-label{font-weight:600;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);display:block;margin-bottom:6px}.phrase-card{display:inline-block;background:var(--white);border:1px solid rgba(181,168,156,.25);border-radius:4px;padding:10px 16px;margin-top:10px;font-family:'Noto Serif KR',serif;font-weight:500;font-size:16px;color:var(--espresso)}.phrase-card .rom{display:block;font-family:'Karla',sans-serif;font-weight:400;font-style:italic;font-size:12px;color:var(--clay);margin-top:4px}.spot-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--terracotta);padding:8px 0;border-bottom:1px solid rgba(184,112,90,.3);transition:border-color .2s;margin-right:20px}.spot-link:hover{border-color:var(--terracotta)}.spot-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}.spot-details{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:12px;color:var(--sand);letter-spacing:.3px}.sub{margin-top:24px;padding-left:20px;border-left:1px solid rgba(181,168,156,.3)}.sub .spot-name{font-size:19px;font-weight:500}.sub .spot-desc{font-size:14px}.sub+.sub{margin-top:28px}.coming-soon{text-align:center;padding:100px 24px;max-width:540px;margin:0 auto}.coming-soon h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:28px;color:var(--sand);margin-bottom:16px}.coming-soon p{font-size:13px;color:var(--sand);letter-spacing:.3px}.city-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}.city-pill{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:8px 20px;border:1px solid rgba(181,168,156,.3);border-radius:24px}footer{text-align:center;padding:60px 24px;max-width:620px;margin:0 auto}.footer-line{width:40px;height:1px;background:var(--sand);margin:0 auto 24px}footer p{font-size:12px;color:var(--sand);letter-spacing:.3px}footer a{color:var(--terracotta);border-bottom:1px solid rgba(184,112,90,.3)}.journey{max-width:540px;margin:0 auto;padding:0 24px 80px}.journey-steps{position:relative;padding-left:28px}.journey-steps::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:rgba(181,168,156,.3)}.j-step{position:relative;margin-bottom:32px}.j-step:last-child{margin-bottom:0}.j-step::before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--sand);border:2px solid var(--parchment);z-index:1}.j-step.now::before{background:var(--terracotta)}.j-place{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--espresso);margin-bottom:2px}.j-desc{font-size:14px;color:var(--clay);line-height:1.7;font-style:italic}.travel-section{max-width:620px;margin:0 auto;padding:0 24px 60px;text-align:center}.travel-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}.travel-count{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;line-height:1;color:var(--espresso);margin-bottom:4px}.travel-count-sub{font-size:13px;color:var(--clay);letter-spacing:.5px;margin-bottom:40px}.travel-map-wrap{position:relative;width:100%;max-width:600px;margin:0 auto}.travel-map-wrap svg{width:100%;height:auto}.map-dot{fill:var(--terracotta);opacity:.85}.map-dot:hover{opacity:1;transform-origin:center;animation:nonepop .3s ease}@keyframes nonepop{50%{r:5}}.region-group{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.region{text-align:left}.region-name{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}.region-countries{font-size:13px;color:var(--clay);line-height:1.8}.spot-img{width:100%;border-radius:6px;margin-bottom:16px;object-fit:cover;max-height:320px}.spot-img-credit{font-size:10px;color:var(--sand);margin-top:-12px;margin-bottom:16px}.spot-img-credit a{color:var(--sand);border-bottom:1px solid rgba(181,168,156,.2)}.seoul-map-section{max-width:620px;margin:0 auto;padding:0 24px 40px}.seoul-map-container{width:100%;height:420px;border-radius:8px;overflow:hidden;border:1px solid rgba(181,168,156,.25)}.hood-map-container{width:100%;height:260px;border-radius:6px;overflow:hidden;border:1px solid rgba(181,168,156,.25);margin-bottom:32px}.saucy-marker{background:none;border:none}.saucy-marker-inner{width:28px;height:28px;border-radius:50%;background:var(--terracotta);border:3px solid var(--white);box-shadow:0 2px 8px rgba(44,36,33,.25);transition:transform .2s;cursor:pointer;position:relative}.saucy-marker-inner:hover{transform:scale(1.2)}.saucy-marker-inner.drink{background:var(--olive)}.saucy-marker-inner.experience{background:var(--clay)}.saucy-marker-inner::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--terracotta)}.saucy-marker-inner.drink::after{border-top-color:var(--olive)}.saucy-marker-inner.experience::after{border-top-color:var(--clay)}.leaflet-popup-content-wrapper{border-radius:6px;font-family:'Karla',sans-serif;box-shadow:0 4px 16px rgba(44,36,33,.12)}.leaflet-popup-content{margin:12px 16px;font-size:13px;line-height:1.6;color:var(--walnut)}.leaflet-popup-content strong{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;color:var(--espresso);display:block;margin-bottom:2px}.leaflet-popup-content .popup-type{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--terracotta);margin-bottom:4px}.leaflet-popup-content .popup-type.drink{color:var(--olive)}.leaflet-popup-content .popup-type.experience{color:var(--clay)}.leaflet-popup-tip{box-shadow:0 4px 16px rgba(44,36,33,.08)}.seoul-map-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}.seoul-map-legend a{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:6px 14px;border:1px solid rgba(181,168,156,.3);border-radius:20px;transition:all .2s}.seoul-map-legend a:hover,.seoul-map-legend a.active{color:var(--terracotta);border-color:var(--terracotta)}.theme-toggle{position:fixed;bottom:24px;right:24px;z-index:100;width:44px;height:44px;border-radius:50%;border:1px solid rgba(181,168,156,.3);background:var(--white);color:var(--clay);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 2px 12px rgba(44,36,33,.08)}.theme-toggle:hover{border-color:var(--terracotta);color:var(--terracotta)}[data-theme="dark"] nav.scrolled{background:rgba(26,23,21,.92)}[data-theme="dark"] .spot{border-bottom-color:rgba(107,96,88,.3)}[data-theme="dark"] .divider span{background:rgba(107,96,88,.3)}[data-theme="dark"] .tip{background:var(--linen)}[data-theme="dark"] .phrase-card{background:var(--white);border-color:rgba(107,96,88,.25)}[data-theme="dark"] .city-pill{border-color:rgba(107,96,88,.3)}[data-theme="dark"] .seoul-map-container,[data-theme="dark"] .hood-map-container{border-color:rgba(107,96,88,.25)}[data-theme="dark"] .seoul-map-legend a{border-color:rgba(107,96,88,.3)}[data-theme="dark"] .saucy-marker-inner{border-color:var(--parchment)}[data-theme="dark"] .leaflet-popup-content-wrapper{background:var(--white)}[data-theme="dark"] .leaflet-popup-tip{background:var(--white)}[data-theme="dark"] ::selection{background:rgba(212,137,110,.2)}[data-theme="dark"] .j-step::before{border-color:var(--parchment)}[data-theme="dark"] .journey-steps::before{background:rgba(107,96,88,.3)}[data-theme="dark"] .sub{border-left-color:rgba(107,96,88,.3)}[data-theme="dark"] .spot-link{border-bottom-color:rgba(212,137,110,.3)}[data-theme="dark"] .travel-map-wrap rect{fill:var(--linen)}[data-theme="dark"] .map-dot{fill:var(--terracotta)}.world-guide-section{max-width:620px;margin:0 auto;padding:60px 24px 40px;text-align:center}.world-guide-section .guide-map-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px;margin-bottom:6px}.world-guide-section .guide-map-subtitle{font-size:13px;color:var(--clay);margin-bottom:20px}.world-guide-map-container{width:100%;height:340px;border-radius:8px;overflow:hidden;border:1px solid rgba(181,168,156,.25)}[data-theme="dark"] .world-guide-map-container{border-color:rgba(107,96,88,.25)}@media(max-width:600px){nav{padding:16px 20px}.nav-links{gap:20px}.nav-links a{font-size:11px;letter-spacing:1.5px}.hero h1{letter-spacing:-1px}.main{padding:0 20px 80px}.hood-num{font-size:48px}.hood-title{font-size:22px}.spot-name{font-size:21px}.about p{font-size:19px}.travel-count{font-size:56px}.region-group{flex-direction:column;align-items:center}.region{text-align:center}.world-guide-map-container{height:260px}}
+:root{--espresso:#2c2421;--walnut:#4a3f39;--clay:#7a6b60;--sand:#b5a89c;--linen:#f4f0eb;--parchment:#faf8f5;--white:#fffefe;--terracotta:#b8705a;--olive:#7c8a6e}[data-theme="dark"]{--espresso:#e8e0d8;--walnut:#c4b8ac;--clay:#9e9288;--sand:#6b6058;--linen:#262220;--parchment:#1a1715;--white:#2a2522;--terracotta:#d4896e;--olive:#9aab88}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--parchment);color:var(--espresso);font-family:'Karla',sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.7;font-size:15px}::selection{background:rgba(184,112,90,.15)}a{color:var(--terracotta);text-decoration:none}nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 32px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s}nav.scrolled{background:rgba(250,248,245,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(181,168,156,.2)}.nav-brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--espresso);letter-spacing:1px}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--clay);transition:color .2s}.nav-links a:hover{color:var(--espresso)}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative}.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--sand);margin-bottom:40px;opacity:0;animation:fadeUp .8s ease .2s forwards}.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,14vw,140px);line-height:.95;color:var(--espresso);letter-spacing:-3px;opacity:0;animation:fadeUp .8s ease .4s forwards}.hero h1 em{font-weight:500;font-style:italic;color:var(--terracotta)}.hero-line{width:1px;height:48px;background:var(--sand);margin:48px auto;opacity:0;animation:fadeUp .8s ease .6s forwards}.hero-tagline{font-size:15px;color:var(--clay);max-width:320px;line-height:1.9;letter-spacing:.3px;opacity:0;animation:fadeUp .8s ease .8s forwards}.hero-scroll{position:absolute;bottom:40px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sand);opacity:0;animation:fadeUp .8s ease 1.2s forwards}.hero-scroll::after{content:'';display:block;width:1px;height:24px;background:var(--sand);margin:8px auto 0;animation:pulse 2s ease-in-out infinite}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}.about{max-width:540px;margin:0 auto;padding:100px 24px;text-align:center}.about-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:28px}.about p{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;line-height:1.8;color:var(--walnut)}.about p em{font-style:italic;color:var(--terracotta)}.about-sig{margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--clay)}.divider{display:flex;align-items:center;justify-content:center;gap:20px;padding:20px 24px;max-width:540px;margin:0 auto}.divider span{flex:1;height:1px;background:rgba(181,168,156,.3)}.divider em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px}.city-hero{text-align:center;padding:100px 24px 60px;max-width:540px;margin:0 auto}.city-hero-label{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--olive);margin-bottom:20px}.city-hero h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,8vw,72px);line-height:1;color:var(--espresso);letter-spacing:-1px;margin-bottom:20px}.city-hero p{font-size:14px;color:var(--clay);line-height:1.8;max-width:360px;margin:0 auto}.main{max-width:620px;margin:0 auto;padding:0 24px 100px}.hood{margin-top:72px}.hood-header{display:flex;align-items:baseline;gap:16px;margin-bottom:40px}.hood-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;line-height:1;color:var(--sand);letter-spacing:-2px}.hood-title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;letter-spacing:.5px;color:var(--espresso)}.hood-title span{font-family:'Noto Serif KR',serif;font-weight:400;font-size:16px;color:var(--clay);margin-left:8px}.spot{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(181,168,156,.3)}.spot:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.spot-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;color:var(--espresso);line-height:1.3;margin-bottom:2px}.spot-kr{font-family:'Noto Serif KR',serif;font-weight:400;font-size:13px;color:var(--clay);margin-bottom:14px;letter-spacing:.5px}.spot-type{display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:14px}.spot-type.drink{color:var(--olive)}.spot-type.experience{color:var(--clay)}.spot-desc{color:var(--walnut);line-height:1.8;margin-bottom:16px}.spot-desc strong{font-weight:600}.tip{background:var(--linen);padding:16px 20px;border-radius:4px;font-size:13.5px;color:var(--walnut);line-height:1.8;margin-bottom:16px}.tip-label{font-weight:600;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);display:block;margin-bottom:6px}.phrase-card{display:inline-block;background:var(--white);border:1px solid rgba(181,168,156,.25);border-radius:4px;padding:10px 16px;margin-top:10px;font-family:'Noto Serif KR',serif;font-weight:500;font-size:16px;color:var(--espresso)}.phrase-card .rom{display:block;font-family:'Karla',sans-serif;font-weight:400;font-style:italic;font-size:12px;color:var(--clay);margin-top:4px}.spot-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--terracotta);padding:8px 0;border-bottom:1px solid rgba(184,112,90,.3);transition:border-color .2s;margin-right:20px}.spot-link:hover{border-color:var(--terracotta)}.spot-link svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}.spot-details{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:12px;color:var(--sand);letter-spacing:.3px}.sub{margin-top:24px;padding-left:20px;border-left:1px solid rgba(181,168,156,.3)}.sub .spot-name{font-size:19px;font-weight:500}.sub .spot-desc{font-size:14px}.sub+.sub{margin-top:28px}.coming-soon{text-align:center;padding:100px 24px;max-width:540px;margin:0 auto}.coming-soon h3{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:28px;color:var(--sand);margin-bottom:16px}.coming-soon p{font-size:13px;color:var(--sand);letter-spacing:.3px}.city-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}.city-pill{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:8px 20px;border:1px solid rgba(181,168,156,.3);border-radius:24px}footer{text-align:center;padding:60px 24px;max-width:620px;margin:0 auto}.footer-line{width:40px;height:1px;background:var(--sand);margin:0 auto 24px}footer p{font-size:12px;color:var(--sand);letter-spacing:.3px}footer a{color:var(--terracotta);border-bottom:1px solid rgba(184,112,90,.3)}.journey{max-width:540px;margin:0 auto;padding:0 24px 80px}.journey-steps{position:relative;padding-left:28px}.journey-steps::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:rgba(181,168,156,.3)}.j-step{position:relative;margin-bottom:32px}.j-step:last-child{margin-bottom:0}.j-step::before{content:'';position:absolute;left:-28px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--sand);border:2px solid var(--parchment);z-index:1}.j-step.now::before{background:var(--terracotta)}.j-place{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--espresso);margin-bottom:2px}.j-desc{font-size:14px;color:var(--clay);line-height:1.7;font-style:italic}.travel-section{max-width:620px;margin:0 auto;padding:0 24px 60px;text-align:center}.travel-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}.travel-count{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;line-height:1;color:var(--espresso);margin-bottom:4px}.travel-count-sub{font-size:13px;color:var(--clay);letter-spacing:.5px;margin-bottom:40px}.travel-map-wrap{position:relative;width:100%;max-width:600px;margin:0 auto}.travel-map-wrap svg{width:100%;height:auto}.map-dot{fill:var(--terracotta);opacity:.85}.map-dot:hover{opacity:1;transform-origin:center;animation:nonepop .3s ease}@keyframes nonepop{50%{r:5}}.region-group{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}.region{text-align:left}.region-name{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);margin-bottom:6px}.region-countries{font-size:13px;color:var(--clay);line-height:1.8}.spot-img{width:100%;border-radius:6px;margin-bottom:16px;object-fit:cover;max-height:320px}.spot-img-credit{font-size:10px;color:var(--sand);margin-top:-12px;margin-bottom:16px}.spot-img-credit a{color:var(--sand);border-bottom:1px solid rgba(181,168,156,.2)}.seoul-map-section{max-width:620px;margin:0 auto;padding:0 24px 40px}.seoul-map-container{width:100%;height:420px;border-radius:8px;overflow:hidden;border:1px solid rgba(181,168,156,.25)}.hood-map-container{width:100%;height:260px;border-radius:6px;overflow:hidden;border:1px solid rgba(181,168,156,.25);margin-bottom:32px}.saucy-marker{background:none;border:none}.saucy-marker-inner{width:28px;height:28px;border-radius:50%;background:var(--terracotta);border:3px solid var(--white);box-shadow:0 2px 8px rgba(44,36,33,.25);transition:transform .2s;cursor:pointer;position:relative}.saucy-marker-inner:hover{transform:scale(1.2)}.saucy-marker-inner.drink{background:var(--olive)}.saucy-marker-inner.experience{background:var(--clay)}.saucy-marker-inner::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--terracotta)}.saucy-marker-inner.drink::after{border-top-color:var(--olive)}.saucy-marker-inner.experience::after{border-top-color:var(--clay)}.leaflet-popup-content-wrapper{border-radius:6px;font-family:'Karla',sans-serif;box-shadow:0 4px 16px rgba(44,36,33,.12)}.leaflet-popup-content{margin:12px 16px;font-size:13px;line-height:1.6;color:var(--walnut)}.leaflet-popup-content strong{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;color:var(--espresso);display:block;margin-bottom:2px}.leaflet-popup-content .popup-type{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--terracotta);margin-bottom:4px}.leaflet-popup-content .popup-type.drink{color:var(--olive)}.leaflet-popup-content .popup-type.experience{color:var(--clay)}.leaflet-popup-tip{box-shadow:0 4px 16px rgba(44,36,33,.08)}.seoul-map-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}.seoul-map-legend a{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);padding:6px 14px;border:1px solid rgba(181,168,156,.3);border-radius:20px;transition:all .2s}.seoul-map-legend a:hover,.seoul-map-legend a.active{color:var(--terracotta);border-color:var(--terracotta)}.theme-toggle{position:fixed;bottom:24px;right:24px;z-index:100;width:44px;height:44px;border-radius:50%;border:1px solid rgba(181,168,156,.3);background:var(--white);color:var(--clay);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 2px 12px rgba(44,36,33,.08)}.theme-toggle:hover{border-color:var(--terracotta);color:var(--terracotta)}[data-theme="dark"] nav.scrolled{background:rgba(26,23,21,.92)}[data-theme="dark"] .spot{border-bottom-color:rgba(107,96,88,.3)}[data-theme="dark"] .divider span{background:rgba(107,96,88,.3)}[data-theme="dark"] .tip{background:var(--linen)}[data-theme="dark"] .phrase-card{background:var(--white);border-color:rgba(107,96,88,.25)}[data-theme="dark"] .city-pill{border-color:rgba(107,96,88,.3)}[data-theme="dark"] .seoul-map-container,[data-theme="dark"] .hood-map-container{border-color:rgba(107,96,88,.25)}[data-theme="dark"] .seoul-map-legend a{border-color:rgba(107,96,88,.3)}[data-theme="dark"] .saucy-marker-inner{border-color:var(--parchment)}[data-theme="dark"] .leaflet-popup-content-wrapper{background:var(--white)}[data-theme="dark"] .leaflet-popup-tip{background:var(--white)}[data-theme="dark"] ::selection{background:rgba(212,137,110,.2)}[data-theme="dark"] .j-step::before{border-color:var(--parchment)}[data-theme="dark"] .journey-steps::before{background:rgba(107,96,88,.3)}[data-theme="dark"] .sub{border-left-color:rgba(107,96,88,.3)}[data-theme="dark"] .spot-link{border-bottom-color:rgba(212,137,110,.3)}[data-theme="dark"] .travel-map-wrap rect{fill:var(--linen)}[data-theme="dark"] .map-dot{fill:var(--terracotta)}.hood-intro{font-size:14px;color:var(--clay);line-height:1.8;font-style:italic;margin-bottom:32px;max-width:480px}.top-pick-badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--white);background:var(--terracotta);padding:3px 10px;border-radius:3px;margin-bottom:14px}.top-pick-badge.experience{background:var(--clay)}.top-pick-badge.drink{background:var(--olive)}.while-here-header{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--sand);margin:48px 0 32px;padding-top:32px;border-top:1px solid rgba(181,168,156,.3)}.spot-closed{opacity:.6;font-style:italic}.world-guide-section{max-width:620px;margin:0 auto;padding:60px 24px 40px;text-align:center}.world-guide-section .guide-map-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:14px;color:var(--sand);letter-spacing:1px;margin-bottom:6px}.world-guide-section .guide-map-subtitle{font-size:13px;color:var(--clay);margin-bottom:20px}.world-guide-map-container{width:100%;height:340px;border-radius:8px;overflow:hidden;border:1px solid rgba(181,168,156,.25)}[data-theme="dark"] .world-guide-map-container{border-color:rgba(107,96,88,.25)}@media(max-width:600px){nav{padding:16px 20px}.nav-links{gap:20px}.nav-links a{font-size:11px;letter-spacing:1.5px}.hero h1{letter-spacing:-1px}.main{padding:0 20px 80px}.hood-num{font-size:48px}.hood-title{font-size:22px}.spot-name{font-size:21px}.about p{font-size:19px}.travel-count{font-size:56px}.region-group{flex-direction:column;align-items:center}.region{text-align:center}.world-guide-map-container{height:260px}}
 </style>
 </head>
 <body>
@@ -206,31 +206,86 @@
 <section class="city-hero" id="seoul">
   <div class="city-hero-label">City Guide</div>
   <h2>Seoul</h2>
-  <p>My top picks across the city — 12 spots, 5 neighborhoods, zero reservations.</p>
+  <p>My top picks across the city — 14 spots, 5 neighborhoods, zero reservations.</p>
   <p style="margin-top:12px;font-size:13px;color:var(--clay)">My <a href="https://maps.app.goo.gl/RVyBmEdXYErDyVD38?g_st=ac" target="_blank" style="border-bottom:1px solid rgba(184,112,90,.3)">saved list</a> keeps growing — these are the ones I keep going back to.</p>
 </section>
 
 <div class="seoul-map-section">
   <div id="seoul-overview-map" class="seoul-map-container"></div>
   <div class="seoul-map-legend">
-    <a href="#hood-seongsu">01 Seongsu</a>
-    <a href="#hood-itaewon">02 Itaewon</a>
-    <a href="#hood-seochon">03 Seochon</a>
-    <a href="#hood-insadong">04 Insadong</a>
-    <a href="#hood-anguk">05 Anguk</a>
+    <a href="#hood-anguk">01 Anguk</a>
+    <a href="#hood-seongsu">02 Seongsu</a>
+    <a href="#hood-itaewon">03 Itaewon / HBC</a>
+    <a href="#hood-seochon">04 Seochon</a>
+    <a href="#hood-insadong">05 Insadong / Ikseon</a>
   </div>
 </div>
 
 <div class="main">
 
-  <div class="hood" id="hood-seongsu">
+  <div class="hood" id="hood-anguk">
     <div class="hood-header">
       <div class="hood-num">01</div>
-      <div class="hood-title">Seongsu <span>성수</span></div>
+      <div class="hood-title">Anguk <span>안국</span></div>
     </div>
-    <div id="map-seongsu" class="hood-map-container"></div>
+    <p class="hood-intro">My forever neighborhood. This corner of Seoul — quiet hanok alleys, palace walls, the smell of roasting coffee — has a special place in my heart. If you visit one area, make it this one.</p>
+    <div id="map-anguk" class="hood-map-container"></div>
+    <div class="spot">
+      <div class="top-pick-badge experience">Top Pick · Experience</div>
+      <div class="spot-name">Changdeokgung Secret Garden</div>
+      <div class="spot-kr">창덕궁 비밀의 정원</div>
+      <img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg/960px-%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg" alt="Changdeokgung Secret Garden — pavilion and pond surrounded by trees" loading="lazy">
+      <div class="spot-img-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg" target="_blank">Wikimedia Commons</a>, CC BY-SA 4.0</div>
+      <p class="spot-desc">If anyone asks me where to go in Seoul — one place, no questions — this is it. The rear garden of Changdeokgung Palace is a UNESCO World Heritage site where centuries-old trees meet exquisite royal architecture. One of my favourite spots in the world.</p>
+      <div class="tip"><span class="tip-label">Important</span>Book the guided tour in advance! Tours run Tue–Sun and fill up fast, especially in autumn. Check the <a href="https://royal.cha.go.kr/cdg" target="_blank" style="border-bottom:1px solid rgba(184,112,90,.3)">official site</a> for time slots.</div>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Changdeokgung+Secret+Garden&query_place_id=ChIJHyS4wtaifDURHzOOAZM0aWA" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+      <div class="spot-details"><span>★ 4.7 · 1.9k reviews</span><span>Tue–Sun, 10am–4pm</span></div>
+    </div>
+    <div class="while-here-header">While you're here</div>
+    <p class="hood-intro">Anguk is perfect for cafe-hopping. These are my personal favourites in the neighborhood.</p>
+    <div class="spot">
+      <div class="spot-type drink">Coffee</div>
+      <div class="spot-name">Fritz Wonseo</div>
+      <div class="spot-kr">프릳츠 원서</div>
+      <p class="spot-desc">A beautifully restored hanok turned into one of Seoul's most beloved coffee roasters. Their bread is just as famous as their coffee — get there early before the pastries sell out.</p>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%ED%94%84%EB%A6%B3%EC%B8%A0+%EC%9B%90%EC%84%9C&query_place_id=ChIJQamT_tWifDURiHZpBhf-JQY" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+      <div class="spot-details"><span>★ 4.3 · 2.8k reviews</span><span>10am–10pm daily</span></div>
+    </div>
+    <div class="spot">
+      <div class="spot-type drink">Coffee</div>
+      <div class="spot-name">TXT Coffee</div>
+      <div class="spot-kr">.txt</div>
+      <p class="spot-desc">A tiny, minimalist specialty coffee gem near Anguk Station. The owner is meticulous about every cup. Look for the iconic green building on the corner — easy to miss.</p>
+      <div class="tip"><span class="tip-label">Nayul's Order</span>Ask about their <strong>seasonal pour-over</strong> — it changes regularly and is always exceptional.</div>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=TXT+Coffee+Anguk&query_place_id=ChIJX_Cf-NCifDURV5XmXP4h7Go" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+      <div class="spot-details"><span>★ 4.5 · 136 reviews</span><span>11am–6pm, closed Sun</span></div>
+    </div>
+    <div class="spot spot-closed">
+      <div class="spot-type drink">Coffee</div>
+      <div class="spot-name">Dongnae Coffee <span style="font-size:13px;font-weight:400;color:var(--sand)">— permanently closed</span></div>
+      <div class="spot-kr">동네커피</div>
+      <p class="spot-desc">Our neighborhood's favourite. A tiny, warm coffee shop that felt like an extension of everyone's living room. It closed recently, but I'm keeping it here because so many people loved this place. We miss you, 동네커피.</p>
+    </div>
     <div class="spot">
       <div class="spot-type">Eats</div>
+      <div class="spot-name">Cheonha Bossam</div>
+      <div class="spot-kr">천하보쌈</div>
+      <p class="spot-desc">Melt-in-your-mouth bossam — tender boiled pork belly wrapped in fresh lettuce with incredible house-made kimchi and ssamjang. Simple, perfect, unforgettable.</p>
+      <div class="tip"><span class="tip-label">Nayul's Order</span>Order the <strong>보쌈정식</strong> (Bossam Jungsik) set — comes with all the fixings. Go at opening time on weekdays to avoid the line.</div>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%EC%B2%9C%ED%95%98%EB%B3%B4%EC%8C%88+Anguk&query_place_id=ChIJP9PNV9qifDUROljHKOL-sAU" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+      <div class="spot-details"><span>★ 4.3 · 696 reviews</span><span>11am–9pm daily</span></div>
+    </div>
+  </div>
+
+  <div class="hood" id="hood-seongsu">
+    <div class="hood-header">
+      <div class="hood-num">02</div>
+      <div class="hood-title">Seongsu <span>성수</span></div>
+    </div>
+    <p class="hood-intro">Seoul's creative district — old factories turned into cafes, galleries, and concept stores. But the best thing here has been around long before any of that.</p>
+    <div id="map-seongsu" class="hood-map-container"></div>
+    <div class="spot">
+      <div class="top-pick-badge">Top Pick · Eats</div>
       <div class="spot-name">Somunnan Seongsu Gamjatang</div>
       <div class="spot-kr">소문난 성수감자탕</div>
       <p class="spot-desc">Legendary pork bone soup, open 24 hours. The broth is deeply savory and the meat falls right off the bone. A true Seoul institution.</p>
@@ -246,10 +301,20 @@
 
   <div class="hood" id="hood-itaewon">
     <div class="hood-header">
-      <div class="hood-num">02</div>
-      <div class="hood-title">Itaewon <span>이태원</span></div>
+      <div class="hood-num">03</div>
+      <div class="hood-title">Itaewon / HBC <span>이태원/해방촌</span></div>
     </div>
+    <p class="hood-intro">Seoul's most international neighborhood. Itaewon proper and the hillside Haebangchon (HBC) above it — both packed with character and hidden gems.</p>
     <div id="map-itaewon" class="hood-map-container"></div>
+    <div class="spot">
+      <div class="top-pick-badge drink">Top Pick · Wine Bar</div>
+      <div class="spot-name">VinVin</div>
+      <div class="spot-kr">방방</div>
+      <p class="spot-desc">A super hidden French-Korean fusion wine bistro. Cozy grandmother's-lounge vibes with curated wines and the sweetest owner. One of those places you feel lucky to know about.</p>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Vin+Vin+Vin+Itaewon&query_place_id=ChIJqcLbrEejfDURFHSRjYXzYxA" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+      <div class="spot-details"><span>★ 4.7</span><span>Tue–Sat, 7pm–2am</span></div>
+    </div>
+    <div class="while-here-header">While you're here</div>
     <div class="spot">
       <div class="spot-type drink">Drinks</div>
       <div class="spot-name">Grand Hyatt Seoul — Lobby Lounge</div>
@@ -257,22 +322,23 @@
       <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Seoul&query_place_id=ChIJm00QzrKjfDURrmF3qXVQJCk" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
       <div class="spot-details"><span>★ 4.4 · 8.5k reviews</span><span>Cocktails & Tea</span></div>
     </div>
-    <div class="spot">
-      <div class="spot-type drink">Wine Bar</div>
-      <div class="spot-name">VinVin</div>
-      <div class="spot-kr">방방</div>
-      <p class="spot-desc">A super hidden French-Korean fusion wine bistro. Cozy grandmother's-lounge vibes with curated wines and the sweetest owner. One of those places you feel lucky to know about.</p>
-      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Vin+Vin+Vin+Itaewon&query_place_id=ChIJqcLbrEejfDURFHSRjYXzYxA" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
-      <div class="spot-details"><span>★ 4.7</span><span>Tue–Sat, 7pm–2am</span></div>
-    </div>
   </div>
 
   <div class="hood" id="hood-seochon">
     <div class="hood-header">
-      <div class="hood-num">03</div>
+      <div class="hood-num">04</div>
       <div class="hood-title">Seochon <span>서촌</span></div>
     </div>
+    <p class="hood-intro">The quiet side of Gyeongbokgung. Narrow alleys, local restaurants that haven't changed in decades, and an unhurried pace that makes you forget you're in a megacity.</p>
     <div id="map-seochon" class="hood-map-container"></div>
+    <div class="spot">
+      <div class="top-pick-badge">Top Pick · Eats</div>
+      <div class="spot-name">Anjumaeul</div>
+      <div class="spot-kr">안주마을</div>
+      <p class="spot-desc">This one's worth the commitment. Put your name on the waitlist — then explore the neighborhood for 3 to 6 hours until they call you. The anju here is that good. You might get lucky with a shorter wait, but plan for the long game.</p>
+      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%EC%95%88%EC%A3%BC%EB%A7%88%EC%9D%84+%EC%84%9C%EC%B4%8C" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
+    </div>
+    <div class="while-here-header">While you're here</div>
     <div class="spot">
       <div class="spot-type">Eats</div>
       <div class="spot-name">Tosokchon Samgyetang</div>
@@ -301,18 +367,20 @@
 
   <div class="hood" id="hood-insadong">
     <div class="hood-header">
-      <div class="hood-num">04</div>
-      <div class="hood-title">Insadong <span>인사동</span></div>
+      <div class="hood-num">05</div>
+      <div class="hood-title">Insadong / Ikseon-dong <span>인사동/익선동</span></div>
     </div>
+    <p class="hood-intro">Where tradition meets character. Insadong's art galleries and tea houses blend into Ikseon-dong's tiny hanok restaurants and bars — Seoul's old soul, still very much alive.</p>
     <div id="map-insadong" class="hood-map-container"></div>
     <div class="spot">
-      <div class="spot-type drink">Craft Beer</div>
+      <div class="top-pick-badge drink">Top Pick · Craft Beer</div>
       <div class="spot-name">Seoul Gypsy OG</div>
       <div class="spot-kr">서울집시 순라길점</div>
       <p class="spot-desc"><strong>Seoul's best craft beer.</strong> The original taproom — cozy alley vibes, incredible house beers, and solid anju. Try their aged red wine barrel lager if available.</p>
       <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Seoul+Gypsy+Seosulla-gil&query_place_id=ChIJ0S0xAtyifDURQqvM5HGPhKQ" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
       <div class="spot-details"><span>★ 4.5 · 473 reviews</span></div>
     </div>
+    <div class="while-here-header">While you're here</div>
     <div class="spot">
       <div class="spot-type">Eats</div>
       <div class="spot-name">Toenmarujip Doenjang Yesul</div>
@@ -330,43 +398,6 @@
       <div class="tip"><span class="tip-label">What to Try</span><strong>쌍화탕 (Ssanghwatang)</strong> — warm herbal energy tonic brewed from medicinal roots. Restores your body after a long day.<br><br><strong>십전대보차 (Sipjeondaebocha)</strong> — "ten-herb vitality tea," a nourishing blend for energy and circulation.</div>
       <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%EC%A7%80%EB%8C%80%EB%B0%A9+%EC%9D%B8%EC%82%AC%EB%8F%99&query_place_id=ChIJ_UTlpMKifDUR2QFRXxRpz48" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
       <div class="spot-details"><span>★ 4.7 · 153 reviews</span><span>10:30am–10:30pm daily</span></div>
-    </div>
-  </div>
-
-  <div class="hood" id="hood-anguk">
-    <div class="hood-header">
-      <div class="hood-num">05</div>
-      <div class="hood-title">Anguk <span>안국</span></div>
-    </div>
-    <div id="map-anguk" class="hood-map-container"></div>
-    <div class="spot">
-      <div class="spot-type experience">Experience</div>
-      <div class="spot-name">Changdeokgung Secret Garden</div>
-      <div class="spot-kr">창덕궁 비밀의 정원</div>
-      <img class="spot-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg/960px-%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg" alt="Changdeokgung Secret Garden — pavilion and pond surrounded by trees" loading="lazy">
-      <div class="spot-img-credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:%EA%B9%80%EC%83%81%EB%B2%94_%EC%B0%BD%EB%8D%95%EA%B6%81%EB%B0%8F%ED%9B%84%EC%9B%90_02569.jpg" target="_blank">Wikimedia Commons</a>, CC BY-SA 4.0</div>
-      <p class="spot-desc"><strong>One of my favourite spots in the world.</strong> The rear garden of Changdeokgung Palace — a UNESCO World Heritage site where centuries-old trees meet exquisite royal architecture.</p>
-      <div class="tip"><span class="tip-label">Important</span>Book the guided tour in advance! Tours run Tue–Sun and fill up fast, especially in autumn. Check the <a href="https://royal.cha.go.kr/cdg" target="_blank" style="border-bottom:1px solid rgba(184,112,90,.3)">official site</a> for time slots.</div>
-      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=Changdeokgung+Secret+Garden&query_place_id=ChIJHyS4wtaifDURHzOOAZM0aWA" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
-      <div class="spot-details"><span>★ 4.7 · 1.9k reviews</span><span>Tue–Sun, 10am–4pm</span></div>
-    </div>
-    <div class="spot">
-      <div class="spot-type drink">Coffee</div>
-      <div class="spot-name">TXT Coffee</div>
-      <div class="spot-kr">.txt</div>
-      <p class="spot-desc">A tiny, minimalist specialty coffee gem near Anguk Station. The owner is meticulous about every cup. Look for the iconic green building on the corner — easy to miss.</p>
-      <div class="tip"><span class="tip-label">Nayul's Order</span>Ask about their <strong>seasonal pour-over</strong> — it changes regularly and is always exceptional.</div>
-      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=TXT+Coffee+Anguk&query_place_id=ChIJX_Cf-NCifDURV5XmXP4h7Go" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
-      <div class="spot-details"><span>★ 4.5 · 136 reviews</span><span>11am–6pm, closed Sun</span></div>
-    </div>
-    <div class="spot">
-      <div class="spot-type">Eats</div>
-      <div class="spot-name">Cheonha Bossam</div>
-      <div class="spot-kr">천하보쌈</div>
-      <p class="spot-desc">Melt-in-your-mouth bossam — tender boiled pork belly wrapped in fresh lettuce with incredible house-made kimchi and ssamjang. Simple, perfect, unforgettable.</p>
-      <div class="tip"><span class="tip-label">Nayul's Order</span>Order the <strong>보쌈정식</strong> (Bossam Jungsik) set — comes with all the fixings. Go at opening time on weekdays to avoid the line.</div>
-      <a class="spot-link" href="https://www.google.com/maps/search/?api=1&query=%EC%B2%9C%ED%95%98%EB%B3%B4%EC%8C%88+Anguk&query_place_id=ChIJP9PNV9qifDUROljHKOL-sAU" target="_blank"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Google Maps</a>
-      <div class="spot-details"><span>★ 4.3 · 696 reviews</span><span>11am–9pm daily</span></div>
     </div>
   </div>
 
@@ -422,18 +453,20 @@ document.querySelectorAll('.hood[id]').forEach(h=>hoodObserver.observe(h));
 
 // Spot data
 const spots=[
+  {name:'Changdeokgung Secret Garden',kr:'창덕궁 비밀의 정원',type:'experience',hood:'anguk',lat:37.5822,lng:126.9919,note:'UNESCO palace garden'},
+  {name:'Fritz Wonseo',kr:'프릳츠 원서',type:'drink',hood:'anguk',lat:37.5808,lng:126.9878,note:'Hanok coffee roaster'},
+  {name:'TXT Coffee',kr:'.txt',type:'drink',hood:'anguk',lat:37.5787,lng:126.9853,note:'Specialty pour-over'},
+  {name:'Cheonha Bossam',kr:'천하보쌈',type:'eats',hood:'anguk',lat:37.5792,lng:126.9873,note:'Perfect bossam'},
   {name:'Somunnan Seongsu Gamjatang',kr:'소문난 성수감자탕',type:'eats',hood:'seongsu',lat:37.5445,lng:127.0565,note:'24hr pork bone soup'},
-  {name:'Grand Hyatt Seoul — Lobby Lounge',type:'drink',hood:'itaewon',lat:37.5384,lng:126.9976,note:'Best view in Seoul'},
   {name:'VinVin',kr:'방방',type:'drink',hood:'itaewon',lat:37.5338,lng:126.9878,note:'Hidden wine bistro'},
+  {name:'Grand Hyatt Seoul — Lobby Lounge',type:'drink',hood:'itaewon',lat:37.5384,lng:126.9976,note:'Best view in Seoul'},
+  {name:'Anjumaeul',kr:'안주마을',type:'eats',hood:'seochon',lat:37.5780,lng:126.9688,note:'Worth the 3-6hr wait'},
   {name:'Tosokchon Samgyetang',kr:'토속촌 삼계탕',type:'eats',hood:'seochon',lat:37.5788,lng:126.9690,note:'Iconic samgyetang'},
   {name:'Cobbler',kr:'코블러',type:'drink',hood:'seochon',lat:37.5798,lng:126.9710,note:'Hanok cocktail bar'},
-  {name:'Seoul Gypsy OG',kr:'서울집시 순라길점',type:'drink',hood:'insadong',lat:37.5735,lng:126.9895,note:'Best craft beer in Seoul'},
   {name:'Seoul Gypsy Fermenteria',type:'drink',hood:'seochon',lat:37.5790,lng:126.9705,note:'Sourdough pizza + beer'},
+  {name:'Seoul Gypsy OG',kr:'서울집시 순라길점',type:'drink',hood:'insadong',lat:37.5735,lng:126.9895,note:'Best craft beer in Seoul'},
   {name:'Toenmarujip Doenjang Yesul',kr:'툇마루집 된장예술',type:'eats',hood:'insadong',lat:37.5730,lng:126.9870,note:'Traditional doenjang'},
-  {name:'Jidaebang',kr:'지대방',type:'experience',hood:'insadong',lat:37.5738,lng:126.9850,note:'Traditional tea house'},
-  {name:'Changdeokgung Secret Garden',kr:'창덕궁 비밀의 정원',type:'experience',hood:'anguk',lat:37.5822,lng:126.9919,note:'UNESCO palace garden'},
-  {name:'TXT Coffee',kr:'.txt',type:'drink',hood:'anguk',lat:37.5787,lng:126.9853,note:'Specialty pour-over'},
-  {name:'Cheonha Bossam',kr:'천하보쌈',type:'eats',hood:'anguk',lat:37.5792,lng:126.9873,note:'Perfect bossam'}
+  {name:'Jidaebang',kr:'지대방',type:'experience',hood:'insadong',lat:37.5738,lng:126.9850,note:'Traditional tea house'}
 ];
 
 const isDark=document.documentElement.getAttribute('data-theme')==='dark';
@@ -452,7 +485,7 @@ function createMarker(spot,map){
 }
 
 // World guide map
-const guideCountries={KOR:{name:'South Korea',section:'#seoul',label:'12 spots · 5 neighborhoods'}};
+const guideCountries={KOR:{name:'South Korea',section:'#seoul',label:'14 spots · 5 neighborhoods'}};
 const comingSoon={TWN:{name:'Taiwan'},USA:{name:'United States'}};
 const worldGuideMap=L.map('world-guide-map',{scrollWheelZoom:false,zoomControl:true,attributionControl:false}).setView([20,10],2);
 const worldGuideTile=L.tileLayer(tileUrl,{maxZoom:6,noWrap:true}).addTo(worldGuideMap);
